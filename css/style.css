@@ -56,6 +56,8 @@ p {
     grid-area: tom;
     align-self: end;
     display: none;
+    width: 1300px;
+    position: relative;
 }
 .stats {
     grid-area: stat;
@@ -69,11 +71,10 @@ p {
 }
 
 .action {
-    display: inline-block;
     width: auto;
     text-align: center;
     font-size: 60px;
-    margin: 0 auto;
+    
 }
 
 .feed{
@@ -87,4 +88,10 @@ p {
 }
 .kill{
     grid-area: kill;
+}
+
+#Tom{
+    width: 100px;
+    /* display: block; */
+    position: relative;
 }

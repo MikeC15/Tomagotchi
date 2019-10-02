@@ -6,15 +6,13 @@ class Tomagotchi {
         this.boredom = 1;
         this.sleepiness = 1;
     }
-    grow(){
-        //change picture at different ages to transform
-    }
-    age(){
-        this.age++;
-        //display on dom
-    }
-    die(){
+    die(clear){
        //ends game 
+       clearInterval(clear);
+       alert(`You let ${this.name} die! How could you, you monster!!`);
+       location.reload();
+       
+
     }
     hungrier(){
         this.hunger++;
@@ -30,16 +28,46 @@ class Tomagotchi {
     }
 };
 const emperor = new Tomagotchi("emperor");
-// console.log(emperor)
 
 
 
 //START GAME
-const gameStart = () => {
-    //display first tom 
+const startAging = () => {
+    // age increases
     // timer for game and increment hunger etx
+    //evolve image at certain age
+    const interval = setInterval(() => {
+        emperor.age++;
+        $(".sideText0").text(`Age: ${emperor.age}`)
+    },5000);
 
-
+    const intFood = setInterval(() => {
+        emperor.hunger++;
+        $(".sideText1").text(`Hunger: ${emperor.hunger}`)
+        if(emperor.hunger === 10){
+            $("#Tom").css("transform", "rotate(270deg)");
+            emperor.die(intFood);
+            // clearInterval(intFood);
+        }
+    }, 2000);
+    const intGame = setInterval(() => {
+        emperor.boredom++;
+        $(".sideText2").text(`Boredom: ${emperor.boredom}`)
+        if(emperor.boredom === 10){
+            $("#Tom").css("transform", "rotate(270deg)");
+            emperor.die(intGame);
+            // clearInterval(intGame);
+        }
+    }, 3500);
+    const intSleep = setInterval(() => {
+        emperor.sleepiness++;
+        $(".sideText3").text(`Sleepiness: ${emperor.sleepiness}`)
+        if(emperor.sleepiness === 10){
+            $("#Tom").css("transform", "rotate(270deg)");
+            emperor.die(intSleep);
+            // clearInterval(intSleep);
+        }
+    }, 4000);
 };
 
 
@@ -50,9 +78,22 @@ const storeName = () => {
     emperor.name = input;
     $(".form").empty();
     $(".form").append(`<h1>${emperor.name} was born! Keep ${emperor.name} alive.</h1>`).css("margin-top", "-30px");
-    $(".tom").css("display", "inline-block");
+    $(".tom").css("display", "block");
+    
+    $(".tom").animate({ left: "1200" }, 5000);
+    
+    // $(".tom").toggle({direction: "right"}, 2000)
+
+    // $("#Tom").toggle(function(){
+    //     $("#Tom").animate({left:"1200"}, 2000)
+    // }//, function(){
+    // //     $("#Tom").animate({left:"1200"}, 2000)
+    // // });
+
+    startAging();
 }
 $("#submitButton").on("click", storeName);
+
 
 
 
