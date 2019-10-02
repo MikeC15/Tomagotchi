@@ -1,5 +1,17 @@
+@font-face {
+  font-family: ff;
+  src: url("../Final_Fantasy_VII/Final_Fantasy_VII.ttf");
+}
+
 body {
     background-color: black;
+    font-family: ff;
+    color: white;
+}
+
+header {
+    text-align: center;
+    font-size: 125px;
 }
 
 .game {
@@ -7,7 +19,7 @@ body {
     background-image: url("../img/Tback.gif");
     background-repeat: no-repeat;
     background-position: top right;
-    background-size: 96% 250px;
+    background-size: 94% 250px;
     position: absolute;
     top: 30%;
     bottom : 50%;
@@ -15,10 +27,25 @@ body {
     height: 300px;
     width: 98%;
     background-color: black;
-    grid-template-columns: 50px 1fr 1fr;
+    grid-template-columns: 80px 1fr;
 	grid-template-rows: 1fr 50px;
-    grid-template-areas: ". . ."
-                         ". . ."
+    grid-template-areas: "stat tom"
+                         ". ."
 
 
+}
+
+.tom {
+    grid-area: tom;
+    align-self: end;
+}
+.stats {
+    grid-area: stat;
+    font-size: 25px;
+    display: grid;
+}
+.stats i {
+    border: 1px solid white;
+    text-align: center;
+    line-height: 
 }
