@@ -13,6 +13,20 @@ header {
     text-align: center;
     font-size: 125px;
 }
+footer {
+    background-image: linear-gradient(#112B9D, #01062B);
+    grid-area: foot;
+    border: double #F1EFEE 3px;
+    display: grid;
+    height: 80px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 80px;
+    grid-template-areas: "feed play sleep kill";
+}
+p {
+    margin: 0 auto;
+    display: inline;
+}
 
 .game {
     display: grid;
@@ -24,20 +38,24 @@ header {
     top: 30%;
     bottom : 50%;
     margin: 0 auto;
-    height: 300px;
+    height: 330px;
     width: 98%;
     background-color: black;
     grid-template-columns: 80px 1fr;
-	grid-template-rows: 1fr 50px;
+	grid-template-rows: 1fr 80px;
     grid-template-areas: "stat tom"
-                         ". ."
+                         ". foot"
 
 
+}
+.form {
+    text-align: center;
 }
 
 .tom {
     grid-area: tom;
     align-self: end;
+    display: none;
 }
 .stats {
     grid-area: stat;
@@ -47,5 +65,26 @@ header {
 .stats i {
     border: 1px solid white;
     text-align: center;
-    line-height: 
+    align-self: center;
+}
+
+.action {
+    display: inline-block;
+    width: auto;
+    text-align: center;
+    font-size: 60px;
+    margin: 0 auto;
+}
+
+.feed{
+    grid-area: feed;
+}
+.play{
+    grid-area: play;
+}
+.sleep{
+    grid-area: sleep;
+}
+.kill{
+    grid-area: kill;
 }

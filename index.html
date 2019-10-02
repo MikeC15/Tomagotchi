@@ -11,30 +11,52 @@
 
     <header class="head">FF Tomagotchi</header>
 
+    <!-- CREATE name input box and store that in emperor object -->
+    <div class="form">
+        <form>
+            <input type="text" id="userInput" placeholder="Name your pet"></input>
+            <button type="button" id="submitButton">Hello</button>
+       </form>
+    </div>
+
     <div class="game">
         <aside class="stats">
             <i class="stat" id="age">
                 <img style="height: 25px;" src="img/Tage.gif"><br>
-                Age: 0
+                <p class="sideText0">Age: 0</p>
             </i>
             <i class="stat" id="hunger">
                 <img style="height: 15px;" src="img/Thunger.gif"><br>
-                Hunger: 0
+                <p class="sideText1">Hunger: 0</p>
             </i>
             <i class="stat" id="boredom">
                 <img style="height: 15px;" src="img/Tboredom.gif"><br>
-                Boredom: 0
+                <p class="sideText2">Boredom: 0</p>
             </i>
             <i class="stat" id="sleepiness">
                 <img style="height: 15px;" src="img/Tsleepiness.gif"><br>
-                Sleepiness: 0
+                <p class="sideText3">Sleepiness: 0</p>
             </i>
         </aside>
 
         <div class="tom">
             <img style="height: 100px;" src="img/T0.gif">
         </div>
-        <footer class="actions"></footer>
+
+        <footer class="actions">
+            <div class="action feed">
+                <p id="feedMe">Feed Me</p>
+            </div>
+            <div class="action play">
+                <p id="playGame">Play A Game With Me</p>
+            </div>
+            <div class="action sleep">
+                <p id="sleepTime">Let Me Sleep</p>
+            </div>
+            <div class="action kill">
+                <p id="killMe">Kill Me</p>
+            </div>
+        </footer>
     </div>
     
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
