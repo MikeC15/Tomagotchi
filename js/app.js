@@ -30,6 +30,25 @@ class Tomagotchi {
 const emperor = new Tomagotchi("emperor");
 
 
+const checkAge = () => {
+    if (emperor.age === 5) {
+        $("#Tom").attr("src", "img/T05.gif")
+    } else if(emperor.age === 10){
+        $("#Tom").attr("src", "img/T1.gif")
+    } else if (emperor.age === 15) {
+        $("#Tom").attr("src", "img/T2.gif")
+        $("#Tom").attr("height", "150px")
+        
+    } else if (emperor.age === 20) {
+        $("#Tom").attr("src", "img/T3.gif")
+        $("#Tom").attr("height", "180px")
+    } else if (emperor.age === 50) {
+        $("#Tom").attr("src", "img/T4.gif")
+        $("#Tom").attr("height", "250px")
+    }
+}
+
+
 
 //START GAME
 const startAging = () => {
@@ -38,8 +57,9 @@ const startAging = () => {
     //evolve image at certain age
     const interval = setInterval(() => {
         emperor.age++;
-        $(".sideText0").text(`Age: ${emperor.age}`)
-    },5000);
+        $(".sideText0").text(`Age: ${emperor.age}`);
+        checkAge();
+    },200);
 
     const intFood = setInterval(() => {
         emperor.hunger++;
@@ -49,7 +69,7 @@ const startAging = () => {
             emperor.die(intFood);
             // clearInterval(intFood);
         }
-    }, 2000);
+    }, 3400);
     const intGame = setInterval(() => {
         emperor.boredom++;
         $(".sideText2").text(`Boredom: ${emperor.boredom}`)
@@ -58,7 +78,7 @@ const startAging = () => {
             emperor.die(intGame);
             // clearInterval(intGame);
         }
-    }, 3500);
+    }, 3800);
     const intSleep = setInterval(() => {
         emperor.sleepiness++;
         $(".sideText3").text(`Sleepiness: ${emperor.sleepiness}`)
@@ -67,7 +87,9 @@ const startAging = () => {
             emperor.die(intSleep);
             // clearInterval(intSleep);
         }
-    }, 4000);
+    }, 4100);
+
+    
 };
 
 
@@ -80,19 +102,14 @@ const storeName = () => {
     $(".form").append(`<h1>${emperor.name} was born! Keep ${emperor.name} alive.</h1>`).css("margin-top", "-30px");
     $(".tom").css("display", "block");
     
-    $(".tom").animate({ left: "1200" }, 5000);
-    
-    // $(".tom").toggle({direction: "right"}, 2000)
-
-    // $("#Tom").toggle(function(){
-    //     $("#Tom").animate({left:"1200"}, 2000)
-    // }//, function(){
-    // //     $("#Tom").animate({left:"1200"}, 2000)
-    // // });
+    $(".tom").animate({ left: "1100" }, 5000);
 
     startAging();
 }
 $("#submitButton").on("click", storeName);
+
+
+
 
 
 

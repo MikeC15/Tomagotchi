@@ -91,7 +91,7 @@ p {
 }
 
 #Tom{
-    width: 100px;
-    /* display: block; */
+    /* width: 100px; */
     position: relative;
+    /* height: auto; */
 }
