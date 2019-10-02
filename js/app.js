@@ -45,6 +45,9 @@ const checkAge = () => {
     } else if (emperor.age === 50) {
         $("#Tom").attr("src", "img/T4.gif")
         $("#Tom").attr("height", "250px")
+    } else if (emperor.age === 100) {
+        alert("You win!!! You nurtured the deadliest monster in the history of the world to full maturity!");
+        location.reload()
     }
 }
 
@@ -59,7 +62,7 @@ const startAging = () => {
         emperor.age++;
         $(".sideText0").text(`Age: ${emperor.age}`);
         checkAge();
-    },200);
+    }, 3000);
 
     const intFood = setInterval(() => {
         emperor.hunger++;
@@ -69,7 +72,7 @@ const startAging = () => {
             emperor.die(intFood);
             // clearInterval(intFood);
         }
-    }, 3400);
+    }, 3100);
     const intGame = setInterval(() => {
         emperor.boredom++;
         $(".sideText2").text(`Boredom: ${emperor.boredom}`)
@@ -78,7 +81,7 @@ const startAging = () => {
             emperor.die(intGame);
             // clearInterval(intGame);
         }
-    }, 3800);
+    }, 5200);
     const intSleep = setInterval(() => {
         emperor.sleepiness++;
         $(".sideText3").text(`Sleepiness: ${emperor.sleepiness}`)
@@ -102,22 +105,11 @@ const storeName = () => {
     $(".form").append(`<h1>${emperor.name} was born! Keep ${emperor.name} alive.</h1>`).css("margin-top", "-30px");
     $(".tom").css("display", "block");
     
-    $(".tom").animate({ left: "1100" }, 5000);
+    // $(".tom").animate({ left: "1100" }, 5000);    //JQUERY ANIMATION THAT DOESNT DO SHIT
 
     startAging();
 }
 $("#submitButton").on("click", storeName);
-
-
-
-
-
-
-
-//animate pet across screen
-//KILL PET BUTTON USES SAME FUNCTION AS WEHN at 10 stat, ON KILL ROTATE PICTURE 90 degrees and stop animation
-
-//ANIMATE FLAMES??
 
 
 
